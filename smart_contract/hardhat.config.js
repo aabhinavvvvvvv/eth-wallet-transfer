@@ -1,12 +1,15 @@
 require("@nomicfoundation/hardhat-toolbox"); // ✅ Use this instead
 
+require("dotenv").config();
 
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const RPC_URL = process.env.RPC_URL;
 module.exports = {
   solidity: '0.8.0',
   networks: {
     sepolia: {
-      url: 'https://go.getblock.io/fa4ffedc905e43319290a880430d8f40',
-      accounts: ['e689f28edda402056884722cb672c2040af5c48a3e68c9c15d0d1130270daec6'],
+      url: RPC_URL,
+      accounts: [PRIVATE_KEY],
     },
   },
 };
